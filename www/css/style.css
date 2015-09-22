@@ -1,0 +1,9 @@
+.locationRecordsList {
+	max-height: 250px;
+}
+.locationRecordsCard {
+	margin-top: 0px !important;
+}
+.locationForm {
+	padding-bottom: 0px !important;
+}
