@@ -1,9 +1,18 @@
 .locationRecordsList {
 	max-height: 250px;
 }
+.locationRecordsList span {
+	font-size: 20px;
+}
 .locationRecordsCard {
 	margin-top: 0px !important;
 }
 .locationForm {
 	padding-bottom: 0px !important;
+}
+.locationIcon {
+	font-size: 30px;
+}
+.bck {
+	background-color: #727273;
 }

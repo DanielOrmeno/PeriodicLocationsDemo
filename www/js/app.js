@@ -27,11 +27,11 @@ var  app = angular.module('swiftLocation', ['ionic'])
 
 app.controller('MainCtrl', function($scope) {
   var currentStart = 0
-  $scope.items = []
+  $scope.records = []
 
   $scope.addItems = function() {
     for (var i = currentStart; i < currentStart+20; i++) {
-      $scope.items.push("Item " + i)
+      $scope.records.push({lat: "0.0", lon: "0.0", timestamp: "12:00"})
     }
     currentStart += 4
   }
