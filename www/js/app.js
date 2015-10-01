@@ -26,15 +26,34 @@ var  app = angular.module('swiftLocation', ['ionic'])
 });
 
 app.controller('MainCtrl', function($scope) {
-  var currentStart = 0
-  $scope.records = []
+  $scope.LocationServices = false;
+  $scope.records = [];
 
-  $scope.addItems = function() {
-    for (var i = currentStart; i < currentStart+20; i++) {
-      $scope.records.push({lat: "0.0", lon: "0.0", timestamp: "12:00"})
+  $scope.addItems = function(locRecords) {
+    console.log('callback with '+locRecords.length+' records.')
+    for (var i = 0; i < locRecords.length; i++) {
+      console.log('parsing '+locRecords[i])
+      $scope.records.push(JSON.parse(locRecords[i]));
+      console.log('there are '+$scope.records.length+' in records');
     }
-    currentStart += 4
+    $scope.$apply();
   }
 
-  $scope.addItems()
-})
+  $scope.SaveSettings = function() {
+    alert('Settings have been saved');
+  }
+
+  $scope.StartLocationServices = function() {
+    swiftLocation.startLocationServices();
+    $scope.LocationServices = true;
+  };
+  
+  $scope.StopLocationServices = function() {
+    swiftLocation.stopLocationServices();
+    $scope.LocationServices = false;
+  };
+
+  $scope.SetLocationServices = function() {
+      swiftLocation.getLocationRecords($scope.addItems);
+  };
+});
